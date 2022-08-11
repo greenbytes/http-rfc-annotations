@@ -1,0 +1,16 @@
+#A Justin Erenkrantz
+#S none
+#T Technical
+#X errata_id:412
+#X checksum:68bf4594ec80a1fea7b8f86204374198
+#X errata_status_code:Verified
+#
+#
+<div class="note">
+From Scott Lawrence:
+<p>
+All known errata for this HTTP RFC will be found at:
+<http://purl.org/NET/http-errata> and
+<http://www.w3.org/Protocols/HTTP/1.1/rfc2616bis/issues/>
+</div>
+
