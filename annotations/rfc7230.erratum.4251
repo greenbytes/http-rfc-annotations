@@ -1,0 +1,33 @@
+#A Bjoern Hoehrmann
+#S 2.7.1
+#L 888
+#T Technical
+#X errata_id:4251
+#X checksum:b64b1b6d004f27d7d844bf147a292422
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+     http-URI = "http:" "//" authority path-abempty [ "?" query ]
+                [ "#" fragment ]
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     http-URI = "http:" "//" authority path-abempty [ "?" query ]
+                <del>[ "#" fragment ]</del>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Per <http://tools.ietf.org/html/rfc3986#section-4.3> "URI scheme
+specifications must define their own syntax so that all strings matching
+their scheme-specific syntax will also match the &lt;absolute-URI&gt;
+grammar." See the discussion around
+<http://mailarchive.ietf.org/arch/msg/apps-discuss/gZVRtgOUFyzOk68FgL1jHTzWG2s>
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/103> and @@Section 4.2.1 of RFC9110@@
+</div>
