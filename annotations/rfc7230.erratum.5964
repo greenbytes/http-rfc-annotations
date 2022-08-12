@@ -1,0 +1,78 @@
+#A Rick van Rein
+#S 2.7.1
+#L 950
+#T Technical
+#X errata_id:5964
+#X checksum:7ef3c1517d0bc847c01413d70e4c9e21
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+   The URI generic syntax for authority also includes a deprecated
+   userinfo subcomponent ([RFC3986], Section 3.2.1) for including user
+   authentication information in the URI.  Some implementations make use
+   of the userinfo component for internal configuration of
+   authentication information, such as within command invocation
+   options, configuration files, or bookmark lists, even though such
+   usage might expose a user identifier or password.  A sender MUST NOT
+   generate the userinfo subcomponent (and its "@" delimiter) when an
+   "http" URI reference is generated within a message as a request
+   target or header field value.  Before making use of an "http" URI
+   reference received from an untrusted source, a recipient SHOULD parse
+   for userinfo and treat its presence as an error; it is likely being
+   used to obscure the authority for the sake of phishing attacks.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   The URI generic syntax for authority also includes a
+   userinfo subcomponent in which the format "user:password" is deprecated
+   ([RFC3986], Section 3.2.1).  The user is permitted, but the password
+   is not.  Some implementations make use
+   of the userinfo component for internal configuration of
+   authentication information, such as within command invocation
+   options, configuration files, or bookmark lists, even though such
+   usage might expose a user identifier or password.  A sender MUST NOT
+   generate a colon in a userinfo subcomponent when an
+   "http" URI reference is generated within a message as a request
+   target or header field value, but it may prefix a user and an "@" delimiter
+   before the host name in an "http" URI.  Before making use of an "http" URI
+   reference received from an untrusted source, a recipient SHOULD parse
+   for userinfo and treat the presence of a colon in it as an error.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+@@RFC3986@@ does not forbid or even discourage the "user" in the userinfo
+subcomponent.  It only says
+<pre>
+Use of the format "user:password" in the userinfo field is
+deprecated.
+</pre>
+and continues to describe ":password" handling.
+<br/><br/>
+Obscuring the authority for the purposes of phishing is not mitigated by
+parsing the userinfo; subdomains in DNS offer similar notational
+flexibility.  Parsing does help against misleading password popups.
+<br/><br/>
+The user is part of the authority section of the URI and its purpose is
+to zoom in on a scope for authoritative resource addressing.  This
+syntax has in the past been (ab)used for Basic/Digest authentication
+details, which only works if visitor and visited resource happen to be
+the same user; it is this (ab)use that is now deprecated.
+<br/><br/>
+===========================
+<br/>Verifier notes:
+<br/>
+This is not really an erratum, as the document says exactly what it was
+intended to say when it was written.  That said, the issue does need to
+be discussed as the document is updated, and an update is planned... so
+I'm marking it "Held for Document Update", rather than "Rejected".
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/278> and @@Section 4.2.4 of [RFC9110]@@
+</div>
+
+
