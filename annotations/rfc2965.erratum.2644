@@ -1,0 +1,28 @@
+#A Loïc Etienne
+#S 3.3.4
+#L 594
+#T Technical
+#X errata_id:2644
+#X checksum:0d7a4bfa665851b32b8317c0a7aa41bc
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+port = "$Port" [ "=" <&shy;"> value <&shy;"> ]
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+port = "$Port" [ "=" <&shy;"> <del>value</del><ins>portlist</ins> <&shy;"> ]
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+&lt;value&gt; is too general, possibly being itself a &lt;quoted-string&gt;
+(resulting in a twofold quoted string).
+<br/><br/>
+The suggested change would agree with the definition on page 5, section
+3.2.2: "Port" [ "=" &lt;"&gt; portlist &lt;"&gt; ]
+</div>
+
