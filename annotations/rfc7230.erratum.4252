@@ -1,0 +1,25 @@
+#A Bjoern Hoehrmann
+#S 2.7.2.
+#T Technical
+#X errata_id:4252
+#X checksum:6cdefffb21f319dfd42497c7aed08dfc
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+     https-URI = "https:" "//" authority path-abempty [ "?" query ]
+                 [ "#" fragment ]
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     https-URI = "https:" "//" authority path-abempty [ "?" query ]
+                 <del>[ "#" fragment ]</del>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+See <a href="#rfc.erratum.4251">erratum 4251</a> on the same document.
+</div>
+
