@@ -1,0 +1,34 @@
+#A Julian Reschke
+#S 1.2 p4
+#L 193
+#T Technical
+#X errata_id:1959
+#X checksum:4d08757c26c392ba95a84d19b74f7c32
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+       credentials = auth-scheme #auth-param
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+       credentials = auth-scheme <ins>( token | quoted-string | </ins>#auth-param<ins> )</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Alexey Melnikov (updated as per suggestion from Paul Leach):
+<br/><br/>
+auth-param doesn't allow for parameters with no '=', so Basic is non
+conformant to the generic syntax.
+<br/><br/>
+Multiple versions of token/quoted-string (with no attribute name) is not
+allowed, as none of the existing scheme not using auth-param supports
+that.
+<br/><br/>
+(Note that RFC 2617 is using BNF from @@RFC 2616@@, which allows for implied
+LWS.)
+</div>
+
