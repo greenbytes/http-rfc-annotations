@@ -1,0 +1,29 @@
+#A Saašha Metsärantala
+#S 99in appendix b:
+#L 575
+#T Technical
+#X errata_id:3475
+#X checksum:a2a95034f4b8d11a40990a4b519ca333
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+Section 2 of [RFC2183] defines several additional disposition 
+parameters: "creation-date", "modification-date", "quoted-date-time",
+and "size".
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+Section 2 of [RFC2183] defines several additional disposition
+parameters: "creation-date", "modification-date", "<del>quoted-date-time</del><ins>read-date</ins>", and 
+"size".
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+@@Section 2 of RFC 2183@@ defines "quoted-date-time", but it is not a
+disposition parameter.
+</div>
+
