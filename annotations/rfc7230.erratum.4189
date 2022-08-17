@@ -1,0 +1,75 @@
+#A Simon Schueppel
+#S 3.2
+#L 1213
+#T Technical
+#X errata_id:4189
+#X checksum:23e89b540da724afebf32bbec225260b
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+     field-name     = token
+     field-value    = *( field-content / obs-fold )
+     field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+     field-vchar    = VCHAR / obs-text
+
+     obs-fold       = CRLF 1*( SP / HTAB )
+                    ; obsolete line folding
+                    ; see Section 3.2.4
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     field-name     = token
+     field-value    = *( field-content / obs-fold )
+     field-content  = field-vchar [ 1*( SP / HTAB <del>)</del><ins>/</ins> field-vchar <ins>)
+                      field-vchar </ins>]
+     field-vchar    = VCHAR / obs-text
+
+     obs-fold       = OWS CRLF 1*( SP / HTAB )
+                    ; obsolete line folding
+                    ; see Section 3.2.4
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+the field-value rule given in @@Section 3.2@@ will not recognize several
+strings recognized by specific header rules.
+<br/><br/>
+Examples:
+<br/>
+<ul>
+<li>", , ," recognized by legacy list rule</li>
+<li>"abrowser/0.001 (C O M M E N T)" recognized by User-Agent rule</li>
+<li>"gzip , chunked" recognized by Transfer-Encoding rule</li>
+</ul>
+<br/>
+General Problem:
+the specified field-value rule does not allow single field-vchar
+surrounded by whitespace anywhere
+<br/><br/>
+Further Notes:
+<br/><br/>
+-what the authors propably wanted to say:
+a string of octets is a field-value if, and only if:
+<ul>
+<li>it is *( field-vchar / SP / HTAB / obs-fold )</li>
+<li>if it is not empty, it starts and ends with field-vchar</li>
+</ul>
+-the suggested correction was designed according to these criteria
+<br/><br/>
+--------------------- Notes from verifier ---------------------
+<br/>
+This has been edited from the original report after discussion, but even
+this is not right.  There's more here than can be reasonably fixed in
+an errata report, and the proper fix needs to be done in a revision of
+the document -- hence, "Held for Document Update".  Note that this *is*
+a valid report, and that a fix is needed.  The one above is the best
+approach for now, and a better fix will be developed in 7230bis.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/19> and @@Section 5.2 of [RFC9112]@@
+</div>
+
