@@ -54,7 +54,7 @@ Further Notes:
 -what the authors propably wanted to say:
 a string of octets is a field-value if, and only if:
 <ul>
-<li>it is *( field-vchar / SP / HTAB / obs-fold )</li>
+<li>it is <code>*( field-vchar / SP / HTAB / obs-fold )</code></li>
 <li>if it is not empty, it starts and ends with field-vchar</li>
 </ul>
 -the suggested correction was designed according to these criteria
