@@ -1,0 +1,35 @@
+#A Daisuke Miyakawa
+#S 3.2.4
+#L 1376
+#T Editorial
+#X errata_id:4050
+#X checksum:d568450957aa74cbd9215622ee79bb55
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+A server MUST reject any received request message that contains
+whitespace between a header field-name and colon with a response code
+of 400 (Bad Request).
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+A server MUST reject any received request message that contains
+whitespace between a header field-name and colon with a <del>response</del><ins>status code</ins>
+of 400 (Bad Request).
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Basically HTTP RFCs seem to prefer "status code" over "response code".
+@@RFC 7231 Section 6@@ uses status code or "Response Status Code", but
+rarely uses the term "response code" (though it uses it, once). Some
+technical books actually refer those codes as "response codes". I tend
+to be confused with the mixture of those two terms.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/94> and @@Section 5.1 of [RFC9112]@@
+</div>
