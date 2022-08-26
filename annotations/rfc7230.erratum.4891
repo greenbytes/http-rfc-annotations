@@ -1,0 +1,31 @@
+#A Mike Bishop
+#S 3.2.6
+#L 1450
+#T Editorial
+#X errata_id:4891
+#X checksum:f0e29e950e05601c63c4f5f6a1949f96
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+qdtext         = HTAB / SP /%x21 / %x23-5B / %x5D-7E / obs-text
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+qdtext         = HTAB / SP /<ins> </ins>%x21 / %x23-5B / %x5D-7E / obs-text
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Lack of space between the slash and the alternative makes it unclear
+that the slash isn't part of the next alternative.
+<br/><br/>
+Mark Nottingham: Not a bug, but certainly an improvement.
+</div>
+<hr/>
+<div class="note">
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/81> and @@Section 5.6.4 of [RFC9110]@@
+</div>
+
