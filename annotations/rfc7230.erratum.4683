@@ -1,0 +1,36 @@
+#A Daurnimator
+#S 4
+#L 1908
+#T Technical
+#X errata_id:4683
+#X checksum:939107282b9663e2a9cd5e89584fbc6d
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="correct">It should say:<pre>
+<ins>The name part of a transfer-parameter is case insensitive and MUST not
+be "q" (as this would be ambiguous when used as part of the TE header).</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Nothing is said about how to handle transfer-parameters.
+Notably, nothing is said about the case sensitivity of the parameter
+key.
+<br/><br/>
+This results in a conflict with the TE header: if you see a "q" token,
+you cannot know if it is a transfer-parameter vs a t-ranking.
+<br/><br/>
+It *is* noted that the "q" token is case insensitive in @@section 4.3@@.
+<br/><br/>
+&gt; When multiple transfer codings are acceptable, the client MAY rank
+<br/>
+&gt; the codings by preference using a case-insensitive "q" parameter
+<br/><br/>
+Alexey: as per Mark, this should be discussed in the HTTPBis WG.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/15> and @@Section 7.3 of [RFC9112]@@
+</div>
