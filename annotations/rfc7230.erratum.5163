@@ -1,0 +1,87 @@
+#A David Matson
+#S 3.2.4
+#L 1350
+#T Technical
+#X errata_id:5163
+#X checksum:e83d5d5756d774b3bf1c78a1aadf2f76
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+A field value might be preceded and/or followed by optional
+whitespace (OWS); a single SP preceding the field-value is preferred
+for consistent readability by humans.  The field value does not
+include any leading or trailing whitespace: OWS occurring before the
+first non-whitespace octet of the field value or after the last
+non-whitespace octet of the field value ought to be excluded by
+parsers when extracting the field value from a header field.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+A field value might be preceded and/or followed by optional
+whitespace (OWS); a single SP preceding the field-value is preferred
+for consistent readability by humans.  The field value does not
+include any leading or trailing whitespace: OWS occurring before the
+first non-whitespace octet of the field value or after the last
+non-whitespace octet of the field value ought to be excluded by
+parsers when extracting the field value from a header field.
+<ins>
+All optional whitespace between tokens in field-content has the same
+semantics as SP. Any sequence of SP / HTAB that occurs between tokens
+in field-content MAY be replaced with a single SP before interpreting
+the field value or forwarding the message downstream.</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+@@RFC 2616, section 2.2@@, contained the following text:
+<br/><br/>
+All linear white space, including folding, has the same semantics as SP.
+A recipient MAY replace any linear white space with a single SP before
+interpreting the field value or forwarding the message downstream.
+<br/><br/>
+Similarly, @@RFC 2616 section 4.2@@ contained the following text:
+Any LWS that occurs between field-content MAY be replaced with a single
+SP before interpreting the field value or forwarding the message
+downstream.
+<br/><br/>
+In @@section A.2@@. Changes from @@RFC 2616@@, the document does not list any
+intended change for how space and tab are handled, but the current text
+does appear to constitute a change. I suspect the change is accidental
+due to rewording the document when line folding was made deprecated.
+<br/><br/>
+Note that in @@RFC 2616@@, LWS is defined as follows:
+<br/><br/>
+LWS            = [CRLF] 1*( SP | HT )
+<br/><br/>
+In particular, the leading CRLF was optional.
+<br/><br/>
+Thus, the wording in RFC 2616 covered two cases:
+<br/>
+<ol>
+<li>LWS that includes line folding.</li>
+<li>LWS that does not include line folding.</li>
+</ol>
+<br/>
+The current text does cover how to handle case #1 - former LWS that
+began with a CRLF; later in @@section 3.2.4@@ it requires rejecting or
+replacing with SP. (The old "MAY" language has effectively become a
+"MUST" for the leading CRLF case.)
+<br/><br/>
+However, the current text does not appear to address case #2 - former
+LWS that does not begin with a CRLF - in other words, SP and HTAB
+occurring between field-content. I suspect the intention is still that a
+recipient should treat such whitespace as insignificant, and may
+replace any sequence of SP and HTAB with a single SP before interpreting
+the field content, but I believe the text of the current RFC no longer
+provides this behavior.
+<br/><br/>
+(I have not read all of the specifications in full, so please accept my
+apologies if I have misread or missed a relevant portion elsewhere.)
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/53> and @@Section 5.6.3 of [RFC9110]@@
+</div>
