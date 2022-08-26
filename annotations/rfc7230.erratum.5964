@@ -72,7 +72,7 @@ I'm marking it "Held for Document Update", rather than "Rejected".
 </div>
 <div class="note">
 <hr/>
-<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/278> and @@Section 4.2.4 of [RFC9110]@@
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/278> and @@Section 4.2.4 of [RFC9110]@@
 </div>
 
 

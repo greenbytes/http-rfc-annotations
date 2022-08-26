@@ -29,5 +29,5 @@ grammar." See the discussion around
 </div>
 <div class="note">
 <hr/>
-<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/103> and @@Section 4.2.1 of [RFC9110]@@
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/103> and @@Section 4.2.1 of [RFC9110]@@
 </div>

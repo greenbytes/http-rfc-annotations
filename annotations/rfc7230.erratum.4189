@@ -70,6 +70,6 @@ approach for now, and a better fix will be developed in 7230bis.
 </div>
 <div class="note">
 <hr/>
-<b>Resolution:</b> <https://github.com/httpwg/http-core/issues/19> and @@Section 5.2 of [RFC9112]@@
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/19> and @@Section 5.2 of [RFC9112]@@
 </div>
 
