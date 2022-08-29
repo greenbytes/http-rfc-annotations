@@ -1,0 +1,57 @@
+#A Erwin Pe
+#S 7
+#L 3260
+#T Technical
+#X errata_id:5257
+#X checksum:1a06b3d70e2bbccca1006d095e656858
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+For compatibility with legacy list rules, a recipient MUST parse and
+ignore a reasonable number of empty list elements: enough to handle
+common mistakes by senders that merge values, but not so much that
+they could be used as a denial-of-service mechanism.  In other words,
+a recipient MUST accept lists that satisfy the following syntax:
+
+  #element => [ ( "," / element ) *( OWS "," [ OWS element ] ) ]
+
+  1#element => *( "," OWS ) element *( OWS "," [ OWS element ] )
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+For compatibility with legacy list rules, a recipient MUST parse and
+ignore a reasonable number of empty list elements: enough to handle
+common mistakes by senders that merge values, but not so much that
+they could be used as a denial-of-service mechanism.  In other words,
+a recipient MUST accept lists that satisfy the following syntax:
+
+  #element => [ <del>( "," / element ) *( OWS "," [ OWS element ] )</del>
+                <ins>( ("," OWS element) / element ) *( OWS "," [ OWS 
+    element ] )</ins> ]
+
+  1#element => *( "," OWS ) element *( OWS "," [ OWS element ] )
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+With the current ABNF rule for #element, and using token as an element,
+the construction:
+<br/><br/>
+<pre>
+",     foobar"
+</pre>
+<br/>
+cannot be derived from #element, but can be derived from 1#element.
+(legacy list rule)
+Since #element is meant to be a superset of 1#element, lists derived
+from 1#element should satisfy the #element rule as well.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/164> and @@Section 5.6.1.2 of [RFC9110]@@
+</div>
+
+
