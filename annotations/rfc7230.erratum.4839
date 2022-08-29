@@ -1,0 +1,32 @@
+#A Etan Kissling
+#S 4
+#L 1908
+#T Technical
+#X errata_id:4839
+#X checksum:07b511bfeee9aa78c5d6b2b94bd74f5f
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   Parameters are in the form of a name or name=value pair.
+
+     transfer-parameter = token BWS "=" BWS ( token / quoted-string )
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   Parameters are in the form of a <del>name or</del> name=value pair.
+
+     transfer-parameter = token BWS "=" BWS ( token / quoted-string )
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The ABNF does not allow the form of a name.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/88> and @@Section 5.6.6 of [RFC9110]@@
+</div>
+
