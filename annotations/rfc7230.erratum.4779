@@ -1,0 +1,39 @@
+#A William A. Rowe Jr.
+#S a.2.
+#L 4384
+#T Editorial
+#X errata_id:4779
+#X checksum:eb2c286dc4c02bde58716a5dcec49d34
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+   [...] Non-US-ASCII content in header fields and the reason
+   phrase has been obsoleted and made opaque (the TEXT rule was
+   removed).  (Section 3.2.6)
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   [...] Non-US-ASCII content in header <del>fields</del><ins>field values</ins> and the reason
+   phrase has been obsoleted and made opaque (the TEXT rule was
+   removed).  (Section 3.2.6)
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+@@Section 3.2@@ plainly states header field names are token
+(VCHARs less separators) as defined in 3.2.6.
+<br/><br/>
+The "header fields" identified in this footnote are neither
+clear nor correct.
+<br/><br/>
+Alexey: While this is a clarification, the whole section is likely to be
+deleted when the document is revised.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/87>
+</div>
+
