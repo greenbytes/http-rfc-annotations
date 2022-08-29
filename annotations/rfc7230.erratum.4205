@@ -1,0 +1,36 @@
+#A Semyon Kholodnov
+#S 6.3
+#L 2871
+#T Editorial
+#X errata_id:4205
+#X checksum:19048cf5f05b0a06be12d6277fe01b7a
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   o  If the received protocol is HTTP/1.0, the "keep-alive" connection
+      option is present, the recipient is not a proxy, and the recipient
+      wishes to honor the HTTP/1.0 "keep-alive" mechanism, the
+      connection will persist after the current response; otherwise,
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+  o  If the received protocol is HTTP/1.0, the "keep-alive" connection
+     option is present<del>, the recipient is not</del><ins> in a message that is not a request</ins> to a proxy,
+     and the recipient wishes to honor the HTTP/1.0 "keep-alive"
+     mechanism, the connection will persist after the current response;
+     otherwise,
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The correction makes it clearer that the reference is meant to be
+client-to-proxy and not proxy-to-server.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/96> and @@Section 9.3 of [RFC9112]@@
+</div>
+
