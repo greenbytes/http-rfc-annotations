@@ -1,0 +1,59 @@
+#A Simon Schueppel
+#S 7
+#L 3266
+#T Technical
+#X errata_id:4169
+#X checksum:55028b4df45a4da705d4cfd0f07b7822
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+     #element => [ ( "," / element ) *( OWS "," [ OWS element ] ) ]
+
+     1#element => *( "," OWS ) element *( OWS "," [ OWS element ] )
+
+   Empty elements do not contribute to the count of elements present.
+   For example, given these ABNF productions:
+
+     example-list      = 1#example-list-elmt
+     example-list-elmt = token ; see Section 3.2.6
+
+   Then the following are valid values for example-list (not including
+   the double quotes, which are present for delimitation only):
+
+     "foo,bar"
+     "foo ,bar,"
+     "foo , ,bar,charlie   "
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     #element => [ ( "," / element ) *( OWS "," [ OWS element ] ) ]
+
+     1#element => *( "," OWS ) element *( OWS "," [ OWS element ] )
+
+   Empty elements do not contribute to the count of elements present.
+   For example, given these ABNF productions:
+
+     example-list      = 1#example-list-elmt
+     example-list-elmt = token ; see Section 3.2.6
+
+   Then the following are valid values for example-list (not including
+   the double quotes, which are present for delimitation only):
+
+     "foo,bar"
+     "foo ,bar,"
+     "foo , ,bar,charlie<del>   </del>"
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+<code>"foo , ,bar,charlie   "</code> cannot be derived from 1#token (legacy list
+rule)
+<code>"foo , ,bar,charlie"</code> can be derived from 1#token (legacy list rule)
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/104> and @@Section 5.6.1.2 of [RFC9110]@@
+</div>
