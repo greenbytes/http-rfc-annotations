@@ -1,0 +1,50 @@
+#A Daurnimator
+#S 3.1.1.2
+#T Technical
+#X errata_id:4689
+#X checksum:c86a44c51f4849fdffd064809f481e96
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+3.1.1.2.  Charset
+
+   HTTP uses charset names to indicate or negotiate the character
+   encoding scheme of a textual representation [RFC6365].  A charset is
+   identified by a case-insensitive token.
+
+     charset = token
+
+   Charset names ought to be registered in the IANA "Character Sets"
+   registry (<&shy;http://www.iana.org/assignments/character-sets>) according
+   to the procedures defined in [RFC2978].
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+3.1.1.2.  Charset
+
+   HTTP uses charset names to indicate or negotiate the character
+   encoding scheme of a textual representation [RFC6365].<del>  A charset is
+   identified by a case-insensitive token.</del>
+
+     charset       = <del>token</del><ins><&shy;mime-charset, see [RFC5987], Section 3.2.1></ins>
+
+   Charset names ought to be registered in the IANA "Character Sets"
+   registry (<&shy;http://www.iana.org/assignments/character-sets>) according
+   to the procedures defined in [RFC2978].
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The definition of charset from RFC 5987 is more strict and more correct.
+<br/><br/>
+Mark Nottingham: This is not an errata; it is a suggestion for a
+technical change in the document, and needs to be discussed by the
+working group.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/100> and @@Section 8.3.2 of [RFC9110]@@
+</div>
