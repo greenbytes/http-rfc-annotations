@@ -1,0 +1,63 @@
+#A Aron Duby
+#S 4.3.5
+#L 1601
+#T Editorial
+#X errata_id:4436
+#X checksum:6948a052be2f6b188e1764cbaa33cbab
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+If a DELETE method is successfully applied, the origin server SHOULD
+send a 202 (Accepted) status code if the action will likely succeed
+but has not yet been enacted, a 204 (No Content) status code if the
+action has been enacted and no further information is to be supplied,
+or a 200 (OK) status code if the action has been enacted and the
+response message includes a representation describing the status.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+If a DELETE method is successfully applied, the origin server SHOULD
+send a 202 (Accepted) status code if the action will likely succeed
+but has not yet been enacted<del>,</del><ins>;</ins> a 204 (No Content) status code if the
+action has been enacted and no further information is to be supplied<del>,</del><ins>;</ins>
+or a 200 (OK) status code if the action has been enacted and the
+response message includes a representation describing the status.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Using a semicolon creates a stronger delineation of the different
+options. If you are just quickly trying to parse what status to return
+if the delete hasn't happened yet and you quickly read "has not yet been
+enacted, a 204 (No Content)" you could incorrectly read that as return
+a 204. The semicolon makes it more obvious that "enacted" is the end of
+that thought and to scan backwards where as the comma in this instance
+requires knowing the structure of the rest of the paragraph.
+<br/><br/>
+----- Verifier Notes -----
+<br/><br/>
+There's no reason to use semicolons to delimit this list, because the
+list items themselves don't contain commas.  Still, the reporter's
+confusion is noted.  Perhaps a bullet list would be better in this case:
+<br/><br/>
+-------
+<br/><br/>
+If a DELETE method is successfully applied, the origin server SHOULD
+send
+<br/><br/>
+- a 202 (Accepted) status code if the action will likely succeed
+but has not yet been enacted,
+<br/>
+- a 204 (No Content) status code if the action has been enacted and
+no further information is to be supplied, or
+<br/>
+- a 200 (OK) status code if the action has been enacted and the
+response message includes a representation describing the status.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/85> and @@Section 9.3.5 of [RFC9110]@@
+</div>
