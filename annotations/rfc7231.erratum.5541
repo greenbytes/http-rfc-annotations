@@ -1,0 +1,41 @@
+#A Danil Suits
+#S 4.3.5
+#L 1612
+#T Technical
+#X errata_id:5541
+#X checksum:0dd3b7a943c05043c600b34afdf4b744
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+   If a DELETE
+   request passes through a cache that has one or more stored responses
+   for the effective request URI, those stored responses will be
+   invalidated
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   If a <ins>successful</ins> DELETE
+   request passes through a cache that has one or more stored responses
+   for the effective request URI, those stored responses will be
+   invalidated
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+@@RFC 7234@@ 4.4 describes the semantics of cache invalidation for
+successful requests (non-error status code), but does not describe
+semantics for unsuccessful requests.  The corrected text parallels the
+construction in @@section 4.3.4@@ ("If a successful PUT request...").
+<br/><br/>
+Mark Nottingham wrote:
+<br/><br/>
+I think HOLD FOR UPDATE; we can address this in the current http-core
+work.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/167> and @@Section 9.3.5 of [RFC9110]@@
+</div>
