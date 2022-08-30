@@ -1,0 +1,49 @@
+#A Bjoern Hoehrmann
+#S a. c & a. d
+#L 5107
+#T Editorial
+#X errata_id:4225
+#X checksum:a5d4ad4aa6f0e63d150530621f51f186
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+     field-name    = <&shy;comment, see [RFC7230], Section 3.2>
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     field-name    = <&shy;<del>comment</del><ins>field-name</ins>, see [RFC7230], Section 3.2>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+field-name does not follow the `comment` production. The section number
+is correct.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/90> and @@Section 1.2 of [RFC9112]@@
+</div>
+####################
+#L 5209
+<div class="original"><pre>
+     field-name    = <&shy;comment, see [RFC7230], Section 3.2>
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+     field-name    = <&shy;<del>comment</del><ins>field-name</ins>, see [RFC7230], Section 3.2>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+field-name does not follow the `comment` production. The section number
+is correct.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/90> and @@Appendix A of [RFC9112]@@
+</div>
