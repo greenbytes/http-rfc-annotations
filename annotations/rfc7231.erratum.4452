@@ -1,0 +1,31 @@
+#A Attila Gulyas
+#S 6.4
+#L 2938
+#T Editorial
+#X errata_id:4452
+#X checksum:651162b2f3eb4fafca4f6dedf5c5072d
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+   Automatic redirection needs to done with
+   care for methods not known to be safe, as defined in Section 4.2.1,
+   since the user might not wish to redirect an unsafe request.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   Automatic redirection needs to <ins>be</ins> done with
+   care for methods not known to be safe, as defined in Section 4.2.1,
+   since the user might not wish to redirect an unsafe request.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+A simple typo ("needs to _be_ done")
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/98> and @@Section 15.4 of [RFC9110]@@
+</div>
