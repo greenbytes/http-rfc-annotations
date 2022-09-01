@@ -1,0 +1,34 @@
+#A Anders Kaseorg
+#S 4.3.7
+#L 1725
+#T Technical
+#X errata_id:5806
+#X checksum:65eda0fed338e090cafb9b2e3b4b8d49
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+A server MUST generate a Content-Length field with a value of "0" if no
+payload body is to be sent in the response.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+If no payload body is to be sent in the response, a server MUST
+generate a status code of 204 (No Content) or a Content-Length field
+with a value of "0" (but not both).
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The original text contradicts RFC 7230 §3.3.2: “A server MUST NOT send a
+Content-Length header field in any response with a status code of 1xx
+(Informational) or 204 (No Content)”, unless the intention was to
+disallow all 204 responses to OPTIONS requests, which I assume it was
+not.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/235> and @@Section 9.3.7 of [RFC9110]@@
+</div>
