@@ -1,0 +1,30 @@
+#A Julian Reschke
+#S a
+#L 1329
+#T Editorial
+#X errata_id:5162
+#X checksum:de7ff693110d3c912b63a0b0d6a9fcc2
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   The ETag header field ABNF has been changed to not use quoted-string,
+   thus avoiding escaping issues.  (Section 2.3)
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   The ETag header field ABNF has been changed to not use quoted-string,
+   thus avoiding escaping issues. <ins>Furthermore, it now disallows the
+   space character.</ins> (Section 2.3)
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+(This entry in the changes section is incomplete)
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/89>
+</div>
