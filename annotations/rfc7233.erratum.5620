@@ -1,0 +1,36 @@
+#A Armin Abfalterer
+#S 4.2
+#L 640
+#T Technical
+#X errata_id:5620
+#X checksum:f8df26a606b47a67fe72428e4ce390f2
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+Content-Range       = byte-content-range
+                    / other-content-range
+
+other-content-range = other-range-unit SP other-range-resp
+other-range-resp    = *CHAR
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Due to the loose definition of "other-content-range" invalid "byte
+content range" values are possible.
+<br/><br/>
+For example, following invalid header value is not valid according to
+"byte-content-range" (as "complete-length" or "*" is missing) but is yet
+allowed by "other-content-range".
+<br/><br/>
+Content-Range: bytes 42-1233/
+<br/><br/>
+The problem might be solved by excluding "bytes-unit" in "other-range-
+unit".
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/196> and @@Section 14.1 of [RFC9110]@@
+</div>
