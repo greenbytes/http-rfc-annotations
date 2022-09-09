@@ -1,0 +1,35 @@
+#A Amichai Rothman
+#S 4.4
+#T Technical
+#X errata_id:4664
+#X checksum:0e73ab613b8402273072a12165445430
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+The 416 (Range Not Satisfiable) status code indicates that none of
+the ranges in the request's Range header field (Section 3.1) overlap
+the current extent of the selected resource or that the set of ranges
+requested has been rejected due to invalid ranges or an excessive
+request of small or overlapping ranges.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+The 416 (Range Not Satisfiable) status code indicates that none of
+the ranges in the request's Range header field (Section 3.1) overlap
+the current extent of the selected <del>resource</del><ins>representation</ins> or that the set of
+ranges requested has been rejected due to invalid ranges or an excessive
+request of small or overlapping ranges.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The overlap may depend on the representation, not only the resource, as
+is the case with byte ranges.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/83> and @@Section 15.5.17 of [RFC9110]@@
+</div>
