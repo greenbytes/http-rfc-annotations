@@ -1,0 +1,33 @@
+#A Kalin Gyokov
+#S 4.4.
+#L 792
+#T Technical
+#X errata_id:5474
+#X checksum:98ee3021d50b524c6544a390e0b27b82
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+For byte ranges, failing to overlap the current extent means that the
+   first-byte-pos of all of the byte-range-spec values were greater than
+   the current length of the selected representation.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+For byte ranges, failing to overlap the current extent means that the
+   first-byte-pos of all of the byte-range-spec values were greater than
+   <ins>or equal</ins> to the current length of the selected representation.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+If the length of the representation is 500 bytes, then the range of the
+entire representation is 0-499. Then a range starting at byte position
+500 fails to overlap the representation.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/135> and @@Section 15.5.17 of [RFC9110]@@
+</div>
