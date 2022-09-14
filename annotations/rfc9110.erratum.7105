@@ -1,0 +1,43 @@
+#A Tomoyuki Sahara
+#S b.1.
+#T Technical
+#X errata_id:7105
+#X checksum:70033fd71de0af1919b20c504e369921
+#X errata_status_code:Reported
+#
+#
+<div class="original"><pre>
+B.1.  Changes from RFC 2818
+
+   None.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+B.1.  Changes from RFC 2818
+
+   <del>None</del><ins>The use of CN-ID has been deprecated</ins>.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+In @@RFC2818@@:
+<br/><br/>
+If a subjectAltName extension of type dNSName is present, that MUST
+be used as the identity. Otherwise, the (most specific) Common Name
+field in the Subject field of the certificate MUST be used.
+<br/><br/>
+CN-ID may be used (when a subjectAltName of type dNSName is not
+present).
+<br/><br/>
+In @@RFC9110@@:
+<br/><br/>
+A reference identity of type CN-ID MUST NOT be used by clients.
+<br/><br/>
+CN-ID is not used at all.  It is a change from RFC2818.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/1092>
+</div>
