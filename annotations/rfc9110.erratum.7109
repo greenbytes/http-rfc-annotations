@@ -1,0 +1,45 @@
+#A Gary Wilson Jr.
+#S 15.4.9
+#T Technical
+#X errata_id:7109
+#X checksum:76186cb157b912bb27d4eac3923a7336
+#X errata_status_code:Reported
+#
+#
+<div class="original"><pre>
+   The 308 (Permanent Redirect) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   The 308 (Permanent Redirect) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.
+   <ins>The user agent MUST NOT change the request method if it performs
+   an automatic redirection to that URI.</ins>
+
+and/or add note as is present in RFC 7538, e.g.:
+
+      <ins>Note: This status code is similar to 301 (Moved Permanently)
+      (Section 15.4.2), except that it does not allow changing
+      the request method from POST to GET.</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The current text in this section for 308 Permanent Redirect does not
+include any mention of the user agent not changing the request method. I
+am suggesting that similar wording be used as in 15.4.8.  307 Temporary
+Redirect and/or a note added similar to the one present in @@RFC 7538@@ but
+excluded from this section's current text. Whichever is chosen, it
+would be good to make the wording/notes consistent across both the 307
+and 308 status code sections.
+</div>
+<div class="note">
+<hr/>
+<b>Resolution:</b> see <https://github.com/httpwg/http-core/issues/1093>
+</div>
+
